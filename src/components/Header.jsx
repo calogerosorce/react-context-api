@@ -1,7 +1,8 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import BudgetContext from "../contexts/BudgetContext";
 export default function Header() {
-
+    const { budgetMode, setBudgetMode, clickMode } = useContext(BudgetContext)
 
     return (
         <>
@@ -24,7 +25,7 @@ export default function Header() {
                         </ul>
                         <ul>
                             <li>
-                                <button className="stand">STANDARD MODE</button>
+                                {budgetMode === false ? <button onClick={() => clickMode()} className="stand">STANDARD MODE</button> : <button onClick={() => clickMode()} className="stand btn btn-primary">BUDGET MODE</button>}
                             </li>
                         </ul>
                     </div>

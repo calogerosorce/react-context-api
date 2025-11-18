@@ -10,10 +10,16 @@ import { useState } from "react"
 function App() {
 
   const [budgetMode, setBudgetMode] = useState(false)
-
+  function clickMode() {
+    if (budgetMode === false) {
+      setBudgetMode(true)
+    } else {
+      setBudgetMode(false)
+    }
+  }
   return (
     <>
-      <BudgetContext.Provider value={{ budgetMode, setBudgetMode }} >
+      <BudgetContext.Provider value={{ budgetMode, setBudgetMode, clickMode }} >
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />} >
