@@ -22,6 +22,11 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/prodotti">Prodotti</NavLink>
                             </li>
                         </ul>
+                        <ul>
+                            <li>
+                                <button className="stand">STANDARD MODE</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>

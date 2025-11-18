@@ -7,6 +7,17 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
+.stand {
+  padding: 6px;
+  border-radius: 1rem;
+}
+
+
+
 
 .sconto {
   min-width: 1300px;
