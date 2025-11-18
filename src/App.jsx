@@ -10,6 +10,7 @@ import { useState } from "react"
 function App() {
 
   const [budgetMode, setBudgetMode] = useState(false)
+
   function clickMode() {
     if (budgetMode === false) {
       setBudgetMode(true)
@@ -17,6 +18,8 @@ function App() {
       setBudgetMode(false)
     }
   }
+
+
   return (
     <>
       <BudgetContext.Provider value={{ budgetMode, setBudgetMode, clickMode }} >

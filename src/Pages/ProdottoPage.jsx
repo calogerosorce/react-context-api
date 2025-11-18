@@ -5,8 +5,8 @@ import { Helix } from 'ldrs/react'
 import 'ldrs/react/Helix.css'
 
 
-
 export default function ProdottoPage() {
+
 
 
     let { id } = useParams()
