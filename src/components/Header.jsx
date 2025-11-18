@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import BudgetContext from "../contexts/BudgetContext";
 export default function Header() {
-    const { budgetMode, setBudgetMode, clickMode } = useContext(BudgetContext)
+    const { maxPrice, setMaxPrice } = useContext(BudgetContext)
 
     return (
         <>
@@ -25,7 +25,8 @@ export default function Header() {
                         </ul>
                         <ul>
                             <li>
-                                {budgetMode === false ? <button onClick={() => clickMode()} className="stand">STANDARD MODE</button> : <button onClick={() => clickMode()} className="stand btn btn-primary">BUDGET MODE</button>}
+                                {/*  {budgetMode === false ? <button onClick={() => clickMode()} className="stand">STANDARD MODE</button> : <button onClick={() => clickMode()} className="stand btn btn-primary">BUDGET MODE</button>} */}
+                                <input type="number" className="form-control" placeholder="BUDGET" value={maxPrice ? maxPrice : ''} onChange={e => setMaxPrice(e.target.value)} />
                             </li>
                         </ul>
                     </div>

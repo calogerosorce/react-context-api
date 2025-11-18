@@ -252,15 +252,15 @@ export default function ProdottiPage() {
       ] */
     const api = 'https://fakestoreapi.com/products'
     const [charat, setCharat] = useState([])
-    const { budgetMode, setBudgetMode, clickMode } = useContext(BudgetContext)
-    const [array, setArray] = useState([])
-
+    const { maxPrice, setMaxPrice } = useContext(BudgetContext)
+    /*  const [array, setArray] = useState([]) */
+    const [price, setPrice] = useState([])
 
     function getArray() {
         axios.get(api)
             .then(res => {
                 setCharat(res.data)
-                setArray(res.data)
+                setPrice(res.data)
             }).catch(err => console.log(err))
     }
 
@@ -269,24 +269,29 @@ export default function ProdottiPage() {
     }, [])
 
     function budget() {
-        const filtered = charat.filter(item => item.price <= 30)
-        setArray(filtered)
+        if (maxPrice !== '') {
+            const filtered = charat.filter(item => item.price <= maxPrice)
+            setPrice(filtered)
+        } else {
+            setPrice(charat)
+        }
     }
 
+    /* function budget() {
+        const filtered = charat.filter(item => item.price <= 30)
+        setArray(filtered)
+    } */
+
     useEffect(() => {
-        if (budgetMode) {
-            budget()
-        } else {
-            setArray(charat)
-        }
-    }, [budgetMode])
+        budget()
+    }, [maxPrice])
 
     return (
         <>
             <h1>ACQUISTA CIO' CHE TI RENDE FELICE</h1>
             <div className="container">
                 <div className="row justify-content-center">
-                    {array.map(items => (
+                    {price.map(items => (
                         <Card key={items.id} title={items.title} image={items.image} category={items.category} price={items.price} id={items.id} />
                     ))}
                 </div>
